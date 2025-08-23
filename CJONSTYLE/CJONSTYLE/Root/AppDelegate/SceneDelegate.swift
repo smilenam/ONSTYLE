@@ -9,9 +9,19 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-
+    var rootRoutable: LaunchRoutable?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        self.window = UIWindow(windowScene: windowScene)
+        
+        if let component = appDelegate.rootComponent {
+            let rootRoutable = RootRouter(component: component, view: window!)
+            self.rootRoutable = rootRoutable
+            rootRoutable.launchStart(path: .splash)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
