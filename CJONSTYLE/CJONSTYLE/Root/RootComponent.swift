@@ -17,6 +17,14 @@ final class RootComponent {
     public var splashBuilder: SplashBuildable {
         SplashBuilder()
     }
+    
+    public var listBuilder: ListBuildable {
+        ListBuilder()
+    }
+}
+
+extension RootComponent: ListDependency {
+    
 }
 
 // Repository

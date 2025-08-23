@@ -24,6 +24,7 @@ final class RootRouter: LaunchRouter<EmptyViewModelType,
     private let component: RootComponent
     private let navigatorViewController: UINavigationController
     private let splashBuilder: SplashBuildable
+    private let listBuilder: ListBuildable
     private var splashRouter: (any ViewableRoutable)?
     
     public let window: UIWindow
@@ -32,6 +33,7 @@ final class RootRouter: LaunchRouter<EmptyViewModelType,
         print("NAM LOG RootRouter init")
         self.component = component
         self.splashBuilder = component.splashBuilder
+        self.listBuilder = component.listBuilder
         self.navigatorViewController = component.navigatorViewController
         self.window = view
         super.init(viewModel: .init(),
@@ -48,11 +50,24 @@ final class RootRouter: LaunchRouter<EmptyViewModelType,
         switch path {
         case .splash:
             splashRouter = splashBuilder.build(listener: self)
+            
             guard let splashRouter else { return }
             try? attachRouter(splashRouter)
             self.viewController = splashRouter.viewController
+            
             launch(from: window)
         case .list:
+            if let splashRouter {
+                try? detachRouter(splashRouter)
+                self.splashRouter = nil
+            }
+            
+            let router = listBuilder.build(listener: self,
+                                            dependency: component)
+
+            self.viewController = router.viewController
+            try? attachRouter(router)
+            
             launch(from: window)
         }
     }
