@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D9598642E596DEC00FA09DC /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598632E596DEA00FA09DC /* Coordinatable.swift */; };
+		3D9598662E596E1D00FA09DC /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598652E596E1C00FA09DC /* UIWindow+Extension.swift */; };
 		3DE6D1EE2E5960E0009326A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E42E5960E0009326A4 /* AppDelegate.swift */; };
 		3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1EB2E5960E0009326A4 /* SceneDelegate.swift */; };
 		3DE6D1F12E5960E0009326A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E52E5960E0009326A4 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D9598632E596DEA00FA09DC /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		3D9598652E596E1C00FA09DC /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		3DE6D1B02E596096009326A4 /* CJONSTYLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJONSTYLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1C62E596099009326A4 /* CJONSTYLETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1D02E596099009326A4 /* CJONSTYLEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,8 +98,33 @@
 		3D95985F2E596B8900FA09DC /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				3D95985E2E596B7600FA09DC /* Resources */,
+				3D95985D2E596B6200FA09DC /* AppDelegate */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		3D9598602E596DB900FA09DC /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		3D9598612E596DBF00FA09DC /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		3D9598622E596DC600FA09DC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3D9598632E596DEA00FA09DC /* Coordinatable.swift */,
+				3D9598652E596E1C00FA09DC /* UIWindow+Extension.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		3DE6D1A72E596096009326A4 = {
@@ -121,9 +150,10 @@
 		3DE6D1ED2E5960E0009326A4 /* CJONSTYLE */ = {
 			isa = PBXGroup;
 			children = (
-				3D95985D2E596B6200FA09DC /* AppDelegate */,
 				3D95985F2E596B8900FA09DC /* Root */,
-				3D95985E2E596B7600FA09DC /* Resources */,
+				3D9598612E596DBF00FA09DC /* Splash */,
+				3D9598602E596DB900FA09DC /* List */,
+				3D9598622E596DC600FA09DC /* Common */,
 			);
 			path = CJONSTYLE;
 			sourceTree = "<group>";
@@ -283,7 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DE6D1EE2E5960E0009326A4 /* AppDelegate.swift in Sources */,
+				3D9598662E596E1D00FA09DC /* UIWindow+Extension.swift in Sources */,
 				3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */,
+				3D9598642E596DEC00FA09DC /* Coordinatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CJONSTYLE/Resources/Info.plist;
+				INFOPLIST_FILE = CJONSTYLE/Root/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -367,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CJONSTYLE/Resources/Info.plist;
+				INFOPLIST_FILE = CJONSTYLE/Root/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
