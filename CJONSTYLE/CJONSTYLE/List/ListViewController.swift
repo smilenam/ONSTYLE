@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 public enum UI {
     static let topInset: CGFloat = 10
@@ -21,6 +22,7 @@ class ListViewController: UIViewController,
     }
 
     private let viewModel: ListViewModel
+    private var cancellables = Set<AnyCancellable>()
     private var collectionView: UICollectionView?
     private var dataSource: UICollectionViewDiffableDataSource<Section, ListModel>?
     private let imageLoader: ImageLoadable
@@ -39,22 +41,16 @@ class ListViewController: UIViewController,
     
     deinit {
         print("NAM LOG ListViewController deinit")
+        cancellables.removeAll()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("NAM LOG ListViewController viewDidLoad")
-        
-        viewModel.items = [.init(data: "", url: "https://image.cjonstyle.net/goods_images/20/276/2059389276L.jpg")]
-        
         setupCollectionView()
         registerCell()
         setupDataSource()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        applySnapshot()
+        bindViewModel()
     }
     
     private func setupCollectionView() {
@@ -101,10 +97,21 @@ class ListViewController: UIViewController,
             guard let self else { return UICollectionViewCell() }
             guard let cell: ListViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: ListViewCell.reuseIdentifier, for: indexPath) as? ListViewCell else { return UICollectionViewCell() }
             
-            cell.configure(url: item.url, imageLoader: imageLoader)
+            cell.configure(model: item, imageLoader: imageLoader)
             
             return cell
         }
+    }
+    
+    private func bindViewModel() {
+        viewModel.$items
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                applySnapshot()
+            }
+            .store(in: &cancellables)
+        
     }
 }
 
@@ -119,21 +126,21 @@ extension ListViewController {
     
     private func listSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .absolute(250))
+                                              heightDimension: .estimated(220))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .absolute(250))
+                                               heightDimension: .estimated(220))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
                                                       subitems: [item])
-        group.interItemSpacing = .fixed(50)
-        
+
         let section = NSCollectionLayoutSection(group: group)
         
         section.contentInsets = .init(top: UI.topInset,
                                       leading: UI.leadingInset,
                                       bottom: 0,
                                       trailing: UI.trailingInset)
+        section.interGroupSpacing = 20
         
         return section
     }
@@ -144,5 +151,6 @@ extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let items = viewModel.items else { return }
         let item = items[indexPath.item]
+        print("NAM LOG didSelectItemAt: \(item.name)")
     }
 }

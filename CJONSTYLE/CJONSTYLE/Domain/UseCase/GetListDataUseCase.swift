@@ -6,7 +6,7 @@
 //
 
 protocol GetListDataUseCaseInterface {
-    func getListData() async throws -> Result<[ListModel], Error>
+    func getListData() async throws -> Result<[ListModel], ErrorType>
 }
 
 struct GetListDataUseCase: GetListDataUseCaseInterface {
@@ -16,7 +16,7 @@ struct GetListDataUseCase: GetListDataUseCaseInterface {
         self.repository = repository
     }
     
-    func getListData() async throws -> Result<[ListModel], any Error> {
+    func getListData() async throws -> Result<[ListModel], ErrorType> {
         do {
             return try await repository.getListData()
         } catch {
