@@ -7,16 +7,25 @@
 
 import UIKit
 
-protocol ListViewRoutable: Routable { }
+protocol ListViewRoutable: Routable {
+    func showDetailView()
+}
 protocol ListViewControllable: UIViewController { }
 final class ListRouter: ViewableRouter<ListViewModelType,
                           ListViewControllable>,
-                          ListViewRoutable {
+                        ListViewRoutable {
     init(viewModel: any ListViewModelType,
          viewController: ListViewController) {
         super.init(viewModel: viewModel,
                     viewControllable: viewController)
         
         viewModel.router = self
+    }
+    
+    func showDetailView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+        }
     }
 }

@@ -14,13 +14,15 @@ struct GetListDataRepository: GetListDataRepositoryInterface {
     
     func getListData() async throws -> Result<[ListModel], any Error> {
         try await withCheckedThrowingContinuation { continuation in
-            continuation.resume(returning: .success([.init(data: "")]))
+            continuation.resume(returning: .success([.init(data: "",
+                                                           url: "")]))
         }
     }
 }
 
 extension GetListDataRepository {
     func toDomain(data: ListDataResponse) -> [ListModel] {
-        return data.data.map { .init(data: $0) }
+        return data.data.map { .init(data: $0,
+                                    url: "") }
     }
 }

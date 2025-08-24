@@ -20,7 +20,8 @@ struct ListDataResponse: Codable, Hashable {
     
 }
 
-struct ListModel {
+struct ListModel: Hashable {
     let data: String
+    let url: String
 }
 

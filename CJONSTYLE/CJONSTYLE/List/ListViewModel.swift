@@ -16,6 +16,8 @@ final class ListViewModel: ListViewModelType {
     weak var router: (any ListViewRoutable)?
     weak var listener: (any ListViewModelListener)?
 
+    var items: [ListModel]?
+    
     init(listener: any ListViewModelListener,
          getListUseCase: GetListDataUseCaseInterface) {
         self.listener = listener
@@ -28,5 +30,10 @@ final class ListViewModel: ListViewModelType {
     
     func detached() {
         print("NAM LOG ListViewModel detached")
+    }
+    
+    func showDetail(path: String) {
+        guard let router else { return }
+        router.showDetailView()
     }
 }

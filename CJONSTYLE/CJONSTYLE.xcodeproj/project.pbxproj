@@ -26,6 +26,8 @@
 		3D95988B2E597F7F00FA09DC /* GetListDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95988A2E597F7100FA09DC /* GetListDataRepository.swift */; };
 		3D95988D2E597F9800FA09DC /* GetListDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95988C2E597F9600FA09DC /* GetListDataUseCase.swift */; };
 		3D95988F2E59E40700FA09DC /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D95988E2E59E40700FA09DC /* products.json */; };
+		3D9598912E5A996B00FA09DC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598902E5A996900FA09DC /* ImageLoader.swift */; };
+		3D9598932E5A99F700FA09DC /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598922E5A99E400FA09DC /* ListViewCell.swift */; };
 		3DE6D1EE2E5960E0009326A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E42E5960E0009326A4 /* AppDelegate.swift */; };
 		3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1EB2E5960E0009326A4 /* SceneDelegate.swift */; };
 		3DE6D1F12E5960E0009326A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E52E5960E0009326A4 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		3D95988A2E597F7100FA09DC /* GetListDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListDataRepository.swift; sourceTree = "<group>"; };
 		3D95988C2E597F9600FA09DC /* GetListDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListDataUseCase.swift; sourceTree = "<group>"; };
 		3D95988E2E59E40700FA09DC /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		3D9598902E5A996900FA09DC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		3D9598922E5A99E400FA09DC /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		3DE6D1B02E596096009326A4 /* CJONSTYLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJONSTYLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1C62E596099009326A4 /* CJONSTYLETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1D02E596099009326A4 /* CJONSTYLEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +148,7 @@
 		3D9598602E596DB900FA09DC /* List */ = {
 			isa = PBXGroup;
 			children = (
+				3D9598922E5A99E400FA09DC /* ListViewCell.swift */,
 				3D9598812E597B4900FA09DC /* ListBuilder.swift */,
 				3D95987F2E597B4100FA09DC /* ListComponent.swift */,
 				3D95987D2E597B3A00FA09DC /* ListRouter.swift */,
@@ -167,6 +172,7 @@
 		3D9598622E596DC600FA09DC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3D9598902E5A996900FA09DC /* ImageLoader.swift */,
 				3D9598632E596DEA00FA09DC /* Coordinatable.swift */,
 				3D9598652E596E1C00FA09DC /* UIWindow+Extension.swift */,
 			);
@@ -404,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9598932E5A99F700FA09DC /* ListViewCell.swift in Sources */,
 				3D9598722E59711D00FA09DC /* Listener.swift in Sources */,
 				3D9598762E5971E800FA09DC /* RootComponent.swift in Sources */,
 				3D95988D2E597F9800FA09DC /* GetListDataUseCase.swift in Sources */,
@@ -418,6 +425,7 @@
 				3D9598892E597F6900FA09DC /* ListModel.swift in Sources */,
 				3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */,
 				3D95986B2E5970B000FA09DC /* SplashViewModel.swift in Sources */,
+				3D9598912E5A996B00FA09DC /* ImageLoader.swift in Sources */,
 				3D9598642E596DEC00FA09DC /* Coordinatable.swift in Sources */,
 				3D95987A2E597B3100FA09DC /* ListViewModel.swift in Sources */,
 				3D95986D2E5970B700FA09DC /* SplashBuilder.swift in Sources */,
