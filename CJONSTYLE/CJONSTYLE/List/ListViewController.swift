@@ -8,7 +8,7 @@
 import UIKit
 
 class ListViewController: UIViewController,
-                            ListViewControllable {
+                          ListViewControllable {
     
     private let viewModel: ListViewModel
     

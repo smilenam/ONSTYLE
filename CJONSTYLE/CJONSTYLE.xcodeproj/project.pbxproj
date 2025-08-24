@@ -22,6 +22,10 @@
 		3D95987E2E597B3F00FA09DC /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95987D2E597B3A00FA09DC /* ListRouter.swift */; };
 		3D9598802E597B4600FA09DC /* ListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95987F2E597B4100FA09DC /* ListComponent.swift */; };
 		3D9598822E597B5000FA09DC /* ListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598812E597B4900FA09DC /* ListBuilder.swift */; };
+		3D9598892E597F6900FA09DC /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598882E597F6400FA09DC /* ListModel.swift */; };
+		3D95988B2E597F7F00FA09DC /* GetListDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95988A2E597F7100FA09DC /* GetListDataRepository.swift */; };
+		3D95988D2E597F9800FA09DC /* GetListDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95988C2E597F9600FA09DC /* GetListDataUseCase.swift */; };
+		3D95988F2E59E40700FA09DC /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D95988E2E59E40700FA09DC /* products.json */; };
 		3DE6D1EE2E5960E0009326A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E42E5960E0009326A4 /* AppDelegate.swift */; };
 		3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1EB2E5960E0009326A4 /* SceneDelegate.swift */; };
 		3DE6D1F12E5960E0009326A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E52E5960E0009326A4 /* Assets.xcassets */; };
@@ -64,6 +68,10 @@
 		3D95987D2E597B3A00FA09DC /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		3D95987F2E597B4100FA09DC /* ListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComponent.swift; sourceTree = "<group>"; };
 		3D9598812E597B4900FA09DC /* ListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilder.swift; sourceTree = "<group>"; };
+		3D9598882E597F6400FA09DC /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		3D95988A2E597F7100FA09DC /* GetListDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListDataRepository.swift; sourceTree = "<group>"; };
+		3D95988C2E597F9600FA09DC /* GetListDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListDataUseCase.swift; sourceTree = "<group>"; };
+		3D95988E2E59E40700FA09DC /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		3DE6D1B02E596096009326A4 /* CJONSTYLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJONSTYLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1C62E596099009326A4 /* CJONSTYLETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1D02E596099009326A4 /* CJONSTYLEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +125,7 @@
 				3DE6D1E52E5960E0009326A4 /* Assets.xcassets */,
 				3DE6D1E62E5960E0009326A4 /* Info.plist */,
 				3DE6D1E82E5960E0009326A4 /* LaunchScreen.storyboard */,
+				3D95988E2E59E40700FA09DC /* products.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -173,6 +182,40 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		3D9598832E597F1B00FA09DC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3D9598862E597F4400FA09DC /* UseCase */,
+				3D9598852E597F3800FA09DC /* Repository */,
+				3D9598842E597F2F00FA09DC /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3D9598842E597F2F00FA09DC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3D9598882E597F6400FA09DC /* ListModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		3D9598852E597F3800FA09DC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3D95988A2E597F7100FA09DC /* GetListDataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		3D9598862E597F4400FA09DC /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				3D95988C2E597F9600FA09DC /* GetListDataUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		3DE6D1A72E596096009326A4 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +244,7 @@
 				3D9598612E596DBF00FA09DC /* Splash */,
 				3D9598602E596DB900FA09DC /* List */,
 				3D9598622E596DC600FA09DC /* Common */,
+				3D9598832E597F1B00FA09DC /* Domain */,
 			);
 			path = CJONSTYLE;
 			sourceTree = "<group>";
@@ -333,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D95988F2E59E40700FA09DC /* products.json in Resources */,
 				3DE6D1F12E5960E0009326A4 /* Assets.xcassets in Resources */,
 				3DE6D1F32E5960E0009326A4 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -361,13 +406,16 @@
 			files = (
 				3D9598722E59711D00FA09DC /* Listener.swift in Sources */,
 				3D9598762E5971E800FA09DC /* RootComponent.swift in Sources */,
+				3D95988D2E597F9800FA09DC /* GetListDataUseCase.swift in Sources */,
 				3D9598822E597B5000FA09DC /* ListBuilder.swift in Sources */,
 				3DE6D1EE2E5960E0009326A4 /* AppDelegate.swift in Sources */,
 				3D95987E2E597B3F00FA09DC /* ListRouter.swift in Sources */,
 				3D95986F2E5970C100FA09DC /* SplashRouter.swift in Sources */,
+				3D95988B2E597F7F00FA09DC /* GetListDataRepository.swift in Sources */,
 				3D9598782E59721D00FA09DC /* RootRouter.swift in Sources */,
 				3D9598662E596E1D00FA09DC /* UIWindow+Extension.swift in Sources */,
 				3D95987C2E597B3800FA09DC /* ListViewController.swift in Sources */,
+				3D9598892E597F6900FA09DC /* ListModel.swift in Sources */,
 				3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */,
 				3D95986B2E5970B000FA09DC /* SplashViewModel.swift in Sources */,
 				3D9598642E596DEC00FA09DC /* Coordinatable.swift in Sources */,

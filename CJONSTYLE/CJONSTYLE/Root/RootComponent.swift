@@ -24,16 +24,15 @@ final class RootComponent {
 }
 
 extension RootComponent: ListDependency {
-    
+    var getListUseCase: GetListDataUseCaseInterface {
+        GetListDataUseCase(repository: getListDataRepository)
+    }
 }
 
 // Repository
 extension RootComponent {
-    
-    
-}
-
-// UseCase
-extension RootComponent {
+    private var getListDataRepository: GetListDataRepositoryInterface {
+        GetListDataRepository()
+    }
     
 }

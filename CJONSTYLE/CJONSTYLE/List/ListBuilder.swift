@@ -11,7 +11,8 @@ final class ListBuilder: ListBuildable {
         let component = ListComponent(dependency: dependency)
         
         let viewModel: ListViewModel = .init(
-            listener: listener)
+            listener: listener,
+            getListUseCase: component.getListUseCase)
         
         let viewController: ListViewController = .init(
             viewModel: viewModel)

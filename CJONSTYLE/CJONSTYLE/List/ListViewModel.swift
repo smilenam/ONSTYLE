@@ -11,11 +11,15 @@ protocol ListViewModelType: ViewModel {
 }
 
 final class ListViewModel: ListViewModelType {
+    private var getListUseCase: GetListDataUseCaseInterface
+    
     weak var router: (any ListViewRoutable)?
     weak var listener: (any ListViewModelListener)?
 
-    init(listener: any ListViewModelListener) {
+    init(listener: any ListViewModelListener,
+         getListUseCase: GetListDataUseCaseInterface) {
         self.listener = listener
+        self.getListUseCase = getListUseCase
     }
     
     func attached() {
