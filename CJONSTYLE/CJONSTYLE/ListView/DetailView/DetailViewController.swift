@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import WebKit
 
 final class DetailViewController: UIViewController,
                                   DetailViewControllable {
@@ -24,8 +25,6 @@ final class DetailViewController: UIViewController,
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle("<", for: .normal)
-//        button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(back), for: .touchUpInside)
         
         var config = UIButton.Configuration.plain()
@@ -33,10 +32,23 @@ final class DetailViewController: UIViewController,
             systemName: "chevron.backward",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .semibold)
         )
+        config.baseForegroundColor = .black.withAlphaComponent(0.6)
         
         button.configuration = config
         
         return button
+    }()
+    
+    private lazy var webView: WKWebView = {
+        let config = WKWebViewConfiguration()
+        config.defaultWebpagePreferences.allowsContentJavaScript = true
+
+        let webView = WKWebView(frame: .zero, configuration: config)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
+        return webView
     }()
     
     init(viewModel: DetailViewModel) {
@@ -69,6 +81,7 @@ final class DetailViewController: UIViewController,
     private func setupUI() {
         view.addSubview(customHeader)
         customHeader.addSubview(backButton)
+        view.addSubview(webView)
         
         NSLayoutConstraint.activate([
             customHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -77,7 +90,12 @@ final class DetailViewController: UIViewController,
             customHeader.heightAnchor.constraint(equalToConstant: 50),
             
             backButton.leadingAnchor.constraint(equalTo: customHeader.leadingAnchor, constant: 12),
-            backButton.centerYAnchor.constraint(equalTo: customHeader.centerYAnchor)
+            backButton.centerYAnchor.constraint(equalTo: customHeader.centerYAnchor),
+            
+            webView.topAnchor.constraint(equalTo: customHeader.bottomAnchor),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -92,8 +110,27 @@ final class DetailViewController: UIViewController,
             .receive(on: DispatchQueue.main)
             .sink { [weak self] link in
                 guard let self else { return }
-                
+                print("NAM LOG DetailViewController bindViewModel load webview")
+                self.load(link)
             }
             .store(in: &cancellables)
+    }
+    
+    private func load(_ link: String) {
+        let encoded = link.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? link
+        guard let url = URL(string: encoded) else { return }
+        webView.load(URLRequest(url: url))
+    }
+}
+
+extension DetailViewController: WKNavigationDelegate, WKUIDelegate {
+
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        print("NAM LOG decidePolicyFor: \(navigationAction)")
+        
+        decisionHandler(.allow)
     }
 }
