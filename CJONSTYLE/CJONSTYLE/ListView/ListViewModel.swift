@@ -42,6 +42,7 @@ final class ListViewModel: ListViewModelType {
         print("NAM LOG ListViewModel detached")
     }
     
+    /// 리스트 데이터 가져오기
     private func getList() {
         guard let getListUseCase else { return }
         
@@ -62,6 +63,7 @@ final class ListViewModel: ListViewModelType {
         }
     }
     
+    /// 상세 페이지 이동
     func showDetail(link: String) {
         guard let router else { return }
         router.showDetailView(link: link)

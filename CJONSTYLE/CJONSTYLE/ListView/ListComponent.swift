@@ -11,6 +11,9 @@ protocol ListDependency {
     
     // Builders
     var detailViewBuilder: DetailBuildable { get }
+    
+    // imageLoader
+    var imageLoader: ImageLoadable { get }
 }
 
 final class ListComponent: ListDependency {
@@ -18,6 +21,7 @@ final class ListComponent: ListDependency {
     
     var getListUseCase: any GetListDataUseCaseInterface { dependency.getListUseCase }
     var detailViewBuilder: any DetailBuildable { dependency.detailViewBuilder }
+    var imageLoader: any ImageLoadable { dependency.imageLoader }
     
     init(dependency: ListDependency) {
         self.dependency = dependency

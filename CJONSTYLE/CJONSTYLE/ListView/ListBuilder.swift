@@ -18,7 +18,8 @@ final class ListBuilder: ListBuildable {
             getListUseCase: component.getListUseCase)
         
         let viewController: ListViewController = .init(
-            viewModel: viewModel)
+            viewModel: viewModel,
+            imageLoader: component.imageLoader)
         
         let router: ListRouter = .init(
             viewModel: viewModel,

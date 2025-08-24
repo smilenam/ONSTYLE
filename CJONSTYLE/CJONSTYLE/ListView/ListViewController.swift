@@ -26,10 +26,10 @@ final class ListViewController: UIViewController,
     private var dataSource: UICollectionViewDiffableDataSource<Section, ListModel>?
     private let imageLoader: ImageLoadable
     
-    init(viewModel: ListViewModel) {
+    init(viewModel: ListViewModel, imageLoader: ImageLoadable) {
         print("NAM LOG ListViewController init")
         self.viewModel = viewModel
-        self.imageLoader = ImageLoader()
+        self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
     }
@@ -51,12 +51,7 @@ final class ListViewController: UIViewController,
         setupDataSource()
         bindViewModel()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
+ 
     private func setupCollectionView() {
         collectionView = .init(frame: .zero,
                             collectionViewLayout: makeCompositionalLayout())
@@ -84,6 +79,7 @@ final class ListViewController: UIViewController,
                                 forCellWithReuseIdentifier: ListViewCell.reuseIdentifier)
     }
 
+    @MainActor
     private func applySnapshot() {
         guard let dataSource else { return }
         guard let items = viewModel.items else { return }

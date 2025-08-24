@@ -31,6 +31,10 @@ extension RootComponent: ListDependency {
     var detailViewBuilder: DetailBuildable {
         DetailViewBuilder()
     }
+    
+    var imageLoader: ImageLoadable {
+        ImageLoader()
+    }
 }
 
 // Repository
