@@ -22,7 +22,7 @@ protocol RootControllable: UIViewController { }
 final class RootRouter: LaunchRouter<EmptyViewModelType,
                           RootControllable> {
     private let component: RootComponent
-    private let navigatorViewController: UINavigationController
+    private var navigatorViewController: UINavigationController
     private let splashBuilder: SplashBuildable
     private let listBuilder: ListBuildable
     private var splashRouter: (any ViewableRoutable)?
@@ -63,11 +63,16 @@ final class RootRouter: LaunchRouter<EmptyViewModelType,
             }
             
             let router = listBuilder.build(listener: self,
-                                            dependency: component)
+                                           navigationController: navigatorViewController,
+                                           dependency: component)
 
             self.viewController = router.viewController
             try? attachRouter(router)
             
+            navigatorViewController.setNavigationBarHidden(true, animated: false)
+            navigatorViewController.setViewControllers([router.viewController], animated: false)
+            viewController = navigatorViewController
+
             launch(from: window)
         }
     }

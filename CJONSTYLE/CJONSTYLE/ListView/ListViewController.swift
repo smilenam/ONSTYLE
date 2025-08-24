@@ -14,9 +14,8 @@ public enum UI {
     static let trailingInset: CGFloat = 10
 }
 
-class ListViewController: UIViewController,
-                          ListViewControllable {
-
+final class ListViewController: UIViewController,
+                                ListViewControllable {
     private enum Section {
         case list
     }
@@ -51,6 +50,11 @@ class ListViewController: UIViewController,
         registerCell()
         setupDataSource()
         bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupCollectionView() {
@@ -151,6 +155,6 @@ extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let items = viewModel.items else { return }
         let item = items[indexPath.item]
-        print("NAM LOG didSelectItemAt: \(item.name)")
+        viewModel.showDetail(link: item.link)
     }
 }

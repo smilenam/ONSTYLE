@@ -28,6 +28,11 @@
 		3D95988F2E59E40700FA09DC /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D95988E2E59E40700FA09DC /* products.json */; };
 		3D9598912E5A996B00FA09DC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598902E5A996900FA09DC /* ImageLoader.swift */; };
 		3D9598932E5A99F700FA09DC /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598922E5A99E400FA09DC /* ListViewCell.swift */; };
+		3D9598962E5AE20300FA09DC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598952E5AE1FC00FA09DC /* DetailViewModel.swift */; };
+		3D9598982E5AE20A00FA09DC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9598972E5AE20500FA09DC /* DetailViewController.swift */; };
+		3D95989C2E5AE22300FA09DC /* DetailViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95989B2E5AE22000FA09DC /* DetailViewRouter.swift */; };
+		3D95989E2E5AE22A00FA09DC /* DetailViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95989D2E5AE22600FA09DC /* DetailViewComponent.swift */; };
+		3D9598A02E5AE23100FA09DC /* DetailViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95989F2E5AE22C00FA09DC /* DetailViewBuilder.swift */; };
 		3DE6D1EE2E5960E0009326A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E42E5960E0009326A4 /* AppDelegate.swift */; };
 		3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6D1EB2E5960E0009326A4 /* SceneDelegate.swift */; };
 		3DE6D1F12E5960E0009326A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE6D1E52E5960E0009326A4 /* Assets.xcassets */; };
@@ -76,6 +81,11 @@
 		3D95988E2E59E40700FA09DC /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		3D9598902E5A996900FA09DC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3D9598922E5A99E400FA09DC /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		3D9598952E5AE1FC00FA09DC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		3D9598972E5AE20500FA09DC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3D95989B2E5AE22000FA09DC /* DetailViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewRouter.swift; sourceTree = "<group>"; };
+		3D95989D2E5AE22600FA09DC /* DetailViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewComponent.swift; sourceTree = "<group>"; };
+		3D95989F2E5AE22C00FA09DC /* DetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewBuilder.swift; sourceTree = "<group>"; };
 		3DE6D1B02E596096009326A4 /* CJONSTYLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJONSTYLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1C62E596099009326A4 /* CJONSTYLETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6D1D02E596099009326A4 /* CJONSTYLEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJONSTYLEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,9 +155,10 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		3D9598602E596DB900FA09DC /* List */ = {
+		3D9598602E596DB900FA09DC /* ListView */ = {
 			isa = PBXGroup;
 			children = (
+				3D9598942E5AE1C600FA09DC /* DetailView */,
 				3D9598922E5A99E400FA09DC /* ListViewCell.swift */,
 				3D9598812E597B4900FA09DC /* ListBuilder.swift */,
 				3D95987F2E597B4100FA09DC /* ListComponent.swift */,
@@ -155,7 +166,7 @@
 				3D95987B2E597B3400FA09DC /* ListViewController.swift */,
 				3D9598792E597B2C00FA09DC /* ListViewModel.swift */,
 			);
-			path = List;
+			path = ListView;
 			sourceTree = "<group>";
 		};
 		3D9598612E596DBF00FA09DC /* Splash */ = {
@@ -222,6 +233,18 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
+		3D9598942E5AE1C600FA09DC /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				3D95989F2E5AE22C00FA09DC /* DetailViewBuilder.swift */,
+				3D95989D2E5AE22600FA09DC /* DetailViewComponent.swift */,
+				3D95989B2E5AE22000FA09DC /* DetailViewRouter.swift */,
+				3D9598972E5AE20500FA09DC /* DetailViewController.swift */,
+				3D9598952E5AE1FC00FA09DC /* DetailViewModel.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		3DE6D1A72E596096009326A4 = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +271,7 @@
 				3D95985F2E596B8900FA09DC /* Root */,
 				3D9598702E5970FD00FA09DC /* Interface */,
 				3D9598612E596DBF00FA09DC /* Splash */,
-				3D9598602E596DB900FA09DC /* List */,
+				3D9598602E596DB900FA09DC /* ListView */,
 				3D9598622E596DC600FA09DC /* Common */,
 				3D9598832E597F1B00FA09DC /* Domain */,
 			);
@@ -421,9 +444,14 @@
 				3D95988B2E597F7F00FA09DC /* GetListDataRepository.swift in Sources */,
 				3D9598782E59721D00FA09DC /* RootRouter.swift in Sources */,
 				3D9598662E596E1D00FA09DC /* UIWindow+Extension.swift in Sources */,
+				3D95989E2E5AE22A00FA09DC /* DetailViewComponent.swift in Sources */,
+				3D9598962E5AE20300FA09DC /* DetailViewModel.swift in Sources */,
 				3D95987C2E597B3800FA09DC /* ListViewController.swift in Sources */,
 				3D9598892E597F6900FA09DC /* ListModel.swift in Sources */,
 				3DE6D1EF2E5960E0009326A4 /* SceneDelegate.swift in Sources */,
+				3D9598982E5AE20A00FA09DC /* DetailViewController.swift in Sources */,
+				3D95989C2E5AE22300FA09DC /* DetailViewRouter.swift in Sources */,
+				3D9598A02E5AE23100FA09DC /* DetailViewBuilder.swift in Sources */,
 				3D95986B2E5970B000FA09DC /* SplashViewModel.swift in Sources */,
 				3D9598912E5A996B00FA09DC /* ImageLoader.swift in Sources */,
 				3D9598642E596DEC00FA09DC /* Coordinatable.swift in Sources */,

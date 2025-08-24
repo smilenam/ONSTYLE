@@ -27,6 +27,10 @@ extension RootComponent: ListDependency {
     var getListUseCase: GetListDataUseCaseInterface {
         GetListDataUseCase(repository: getListDataRepository)
     }
+    
+    var detailViewBuilder: DetailBuildable {
+        DetailViewBuilder()
+    }
 }
 
 // Repository
@@ -34,5 +38,4 @@ extension RootComponent {
     private var getListDataRepository: GetListDataRepositoryInterface {
         GetListDataRepository()
     }
-    
 }

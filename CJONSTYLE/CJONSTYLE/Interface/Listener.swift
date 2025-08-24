@@ -10,3 +10,5 @@ protocol ListViewModelListener: ChildListener { }
 protocol SplashViewModelListener: ChildListener {
     func endLaunchScreen()
 }
+
+protocol DetailViewModelListener: ChildListener { }

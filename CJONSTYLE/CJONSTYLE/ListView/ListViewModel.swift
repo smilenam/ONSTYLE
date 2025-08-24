@@ -28,6 +28,7 @@ final class ListViewModel: ListViewModelType {
     }
     
     deinit {
+        print("NAM LOG ListViewModel deinit")
         task?.cancel()
         task = nil
     }
@@ -41,11 +42,6 @@ final class ListViewModel: ListViewModelType {
         print("NAM LOG ListViewModel detached")
     }
     
-    func showDetail(path: String) {
-        guard let router else { return }
-        router.showDetailView()
-    }
-
     private func getList() {
         guard let getListUseCase else { return }
         
@@ -64,5 +60,10 @@ final class ListViewModel: ListViewModelType {
                 print("NAM LOG getListUseCase error: \(error)")
             }
         }
+    }
+    
+    func showDetail(link: String) {
+        guard let router else { return }
+        router.showDetailView(link: link)
     }
 }

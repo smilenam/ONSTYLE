@@ -5,9 +5,12 @@
 //  Created by 남태현 on 8/23/25.
 //
 
+import UIKit
+
 final class ListBuilder: ListBuildable {
     func build(listener: any ListViewModelListener,
-                dependency: ListDependency) -> any ViewableRoutable {
+               navigationController: UINavigationController,
+               dependency: ListDependency) -> any ViewableRoutable {
         let component = ListComponent(dependency: dependency)
         
         let viewModel: ListViewModel = .init(
@@ -19,7 +22,9 @@ final class ListBuilder: ListBuildable {
         
         let router: ListRouter = .init(
             viewModel: viewModel,
-            viewController: viewController)
+            viewController: viewController,
+            navigationController: navigationController,
+            detailViewBuilder: component.detailViewBuilder)
         
         return router
     }
